@@ -7,7 +7,7 @@ import './Calculate.css'
 
 function Calculate() {
     return(
-        <section id='calculate' className="main-page calculate absolute visible">
+        <section id='calculate' className="main-page calculate absolute">
             <div className='calculate-inner'>
                 <StoreButton>
                     <TaobaoIcon />

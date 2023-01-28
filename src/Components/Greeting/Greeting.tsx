@@ -5,14 +5,14 @@ import './Greeting.css';
 function Greeting() {
 
     return (
-        <section id='greeting' className="main-page greeting">
+        <section id='greeting' className="main-page greeting visible">
             <div className='greeting-inner'>
                 <div className='greeting-title-list'>
-                    <h2 className='page-title greeting-title'>
+                    <h2 className='page-title greeting-title title'>
                         Привет, меня зовут Даша.
                     </h2>
-                    <h2 className='page-title greeting-title'>
-                        Я посредник по работе с китаем
+                    <h2 className='page-title greeting-title title'>
+                        Я посредник по работе с Китаем
                     </h2>  
                 </div>
                 <div className='greeting-button-wrapper'>

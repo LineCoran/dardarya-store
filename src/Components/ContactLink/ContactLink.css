@@ -1,0 +1,11 @@
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-link a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}

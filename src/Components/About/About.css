@@ -1,0 +1,44 @@
+.about {
+    width: 100%;
+    position: relative;
+    padding: 3rem 1rem;
+    justify-content: center;
+    background: url('../../assets/img/something.JPG') bottom right / cover no-repeat;
+}
+
+.about-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-text {
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    width: 40%;
+    top: 50%;
+    right: 5%;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.6rem;
+    font-weight: 300;
+    background: rgba(241, 106, 244, 0.5);
+}
+
+.contacts {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 12%;
+    top: 50%;
+    left: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 50px;
+    border-radius: 20px;
+}
