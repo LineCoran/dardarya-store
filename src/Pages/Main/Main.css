@@ -48,6 +48,23 @@
     transform: translateX(0);
 }
 
+@media (max-width: 1024px) {
+    .contacts {
+        padding: 5px 10px;
+        height: 12%;
+    }
+
+    .contacts a {
+        font-size: 16px;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        width: 50%;
+        line-height: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .pages {
         width: 100%;

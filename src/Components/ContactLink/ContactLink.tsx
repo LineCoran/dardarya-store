@@ -1,15 +1,16 @@
+import { ReactNode } from 'react';
 import './ContactLink.css';
 
 interface IContactLink {
     link: string;
     name: string;
-    imgSrc: string;
+    children: ReactNode;
 }
 
-function ContactLink({link, name, imgSrc}: IContactLink) {
+function ContactLink({link, name, children}: IContactLink) {
     return (
         <li className="contact-item">
-            <img src={imgSrc} height="40px" width="40px" alt="" />
+            {children}
             <p className="contact-link">
                 <a className="contact-link-text" href={link}>
                     {name}

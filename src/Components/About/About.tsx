@@ -1,5 +1,7 @@
 import { changePage } from '../../helpers/ChangePage';
 import ContactLink from '../ContactLink/ContactLink';
+import InstagramIcon from '../Icons/InstagramIcon';
+import TelegramIcon from '../Icons/TelegramIcon';
 import MyButton from '../UI/MyButton/MyButton';
 import './About.css';
 
@@ -20,14 +22,16 @@ function About() {
                 <div className='contacts'>
                     <ContactLink
                       link='https://www.instagram.com/dardaryya/'
-                      imgSrc='https://cdn.iconscout.com/icon/free/png-512/instagram-216-721958.png?w=256&f=avif'
                       name='Instagram'
-                      />
-                      <ContactLink
+                      >
+                        <InstagramIcon />
+                    </ContactLink>
+                    <ContactLink
                       link='https://t.me/dorogyshadasha/'
-                      imgSrc='https://cdn.iconscout.com/icon/free/png-512/telegram-2752057-2284874.png?w=256&f=avif'
                       name='Telegram'
-                      />
+                    >
+                      <TelegramIcon />
+                    </ContactLink>
                 </div>
             </div>
             <div className='about-button-wrapper'>
