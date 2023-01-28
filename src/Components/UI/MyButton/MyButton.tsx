@@ -1,13 +1,15 @@
 import './MyButton.css';
 
 interface IMyButton {
+    page: string;
     text: string;
     color: string;
+    showPage: (value: string) => void
 }
 
-function MyButton({ text, color }: IMyButton) {
+function MyButton({ page, text, color, showPage }: IMyButton) {
     return (
-        <button className={`mybutton mybutton-${color}`}>
+        <button onClick={() => showPage(page)} className={`mybutton mybutton-${color}`}>
             {text}
         </button>
     )
