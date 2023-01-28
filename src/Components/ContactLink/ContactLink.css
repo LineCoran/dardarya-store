@@ -3,6 +3,10 @@
     align-items: center;
 }
 
+.contact-item:first-child {
+    margin-bottom: 10px;
+}
+
 .contact-link a {
     font-size: 18px;
     color: white;
