@@ -1,8 +1,8 @@
+import { Button } from '@mui/material';
 import { changePage } from '../../helpers/ChangePage';
 import ContactLink from '../ContactLink/ContactLink';
 import InstagramIcon from '../Icons/InstagramIcon';
 import TelegramIcon from '../Icons/TelegramIcon';
-import MyButton from '../UI/MyButton/MyButton';
 import './About.css';
 
 function About() {
@@ -35,7 +35,13 @@ function About() {
                 </div>
             </div>
             <div className='about-button-wrapper'>
-                <MyButton showPage={changePage} page='greeting' text='Главная' color='blue'/>
+                <Button
+                    variant="contained"
+                    size="medium"
+                    onClick={() => changePage('greeting')}
+                    >
+                        Главная
+                    </Button>
             </div>
         </div>
     </section>

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 import { useState } from "react";
 import { changePage } from "../../helpers/ChangePage";
 import ProductList from "../ProductList/ProductList";
@@ -27,15 +27,18 @@ function CalculateSite({ site }: ICalculateSite) {
                 <div className="site-calculate-footer">
                 <Button
                   variant="contained"
-                  size="small"
+                  sx={{marginTop: '0.5rem'}}
+                  size="medium"
                   onClick={() => setProduct([...products, { id: products.length+1}])}
                 >
-                    Добавить товар
+                    Добавить
                 </Button>
-            <div className='greeting-button-wrapper greeting-button-wrapper-three'>
+                <ButtonGroup fullWidth={true} sx={{marginTop: '0.5rem'}} variant="outlined" aria-label="outlined button group">
+
                 <Button
                   variant="contained"
                   color="success"
+                  size="medium"
                   disabled={!products.length}
                   onClick={() => alert('Еще не готово')}
                 >
@@ -44,22 +47,22 @@ function CalculateSite({ site }: ICalculateSite) {
 
                 <Button
                   variant="contained"
-                  size="small"
+                  size="medium"
                   onClick={() => changePage('greeting')}
                 >
-                    На главную
+                    Домой
                 </Button>
 
                 <Button
                   variant="contained"
-                  size="small"
+                  size="medium"
                   color="error"
                   disabled={!products.length}
                   onClick={() => setProduct([])}
                 >
                     Очистить
                 </Button>
-            </div>
+                </ButtonGroup>
             </div>
         </div>
     </section>

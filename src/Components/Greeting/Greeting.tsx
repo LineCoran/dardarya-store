@@ -1,5 +1,5 @@
+import { Button } from '@mui/material';
 import { changePage } from '../../helpers/ChangePage';
-import MyButton from '../UI/MyButton/MyButton';
 import './Greeting.css';
 
 function Greeting() {
@@ -15,9 +15,24 @@ function Greeting() {
                         Я посредник по работе с Китаем
                     </h2>  
                 </div>
+
                 <div className='greeting-button-wrapper'>
-                    <MyButton showPage={changePage} page='calculate' text='Расчет' color='blue'/>
-                    <MyButton showPage={changePage} page='about' text='Обо мне' color='white'/>
+                    <Button
+                    variant="contained"
+                    color="success"
+                    size="medium"
+                    onClick={() => changePage('calculate')}
+                    >
+                        Расчет
+                    </Button>
+
+                    <Button
+                    variant="contained"
+                    size="medium"
+                    onClick={() => changePage('about')}
+                    >
+                        Обо мне
+                    </Button>
                 </div>
             </div>
         </section>

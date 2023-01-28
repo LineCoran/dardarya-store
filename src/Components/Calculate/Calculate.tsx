@@ -1,7 +1,7 @@
+import { Button } from '@mui/material';
 import { changePage } from '../../helpers/ChangePage';
 import AlibabaIcon from '../Icons/AlibabaIcon';
 import TaobaoIcon from '../Icons/TaobaoIcon';
-import MyButton from '../UI/MyButton/MyButton';
 import StoreButton from '../UI/StoreButton/StoreButton';
 import './Calculate.css';
 
@@ -23,7 +23,13 @@ function Calculate() {
                     </StoreButton>               
                 </div>
                 <div className='about-button-wrapper'>
-                    <MyButton showPage={changePage} page='greeting' text='На главную' color='blue'/>
+                    <Button
+                    variant="contained"
+                    size="medium"
+                    onClick={() => changePage('greeting')}
+                    >
+                        На главную
+                    </Button>
                 </div>
             </section>
         )
