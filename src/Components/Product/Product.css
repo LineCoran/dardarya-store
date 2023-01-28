@@ -2,9 +2,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     color: black;
+    border-top: rgba(0, 0, 0, 0.3) solid 1px;
+}
+
+.product-title {
+    width: max-content;
+    margin: 0 auto;
 }
 
 .product-inputs {

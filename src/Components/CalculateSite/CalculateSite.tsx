@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { changePage } from "../../helpers/ChangePage";
 import ProductList from "../ProductList/ProductList";
-import MyButton from "../UI/MyButton/MyButton";
 import './CalculateSite.css'
 
 interface IProduct {
@@ -28,6 +27,7 @@ function CalculateSite({ site }: ICalculateSite) {
                 <div className="site-calculate-footer">
                 <Button
                   variant="contained"
+                  size="small"
                   onClick={() => setProduct([...products, { id: products.length+1}])}
                 >
                     Добавить товар
@@ -35,13 +35,30 @@ function CalculateSite({ site }: ICalculateSite) {
             <div className='greeting-button-wrapper greeting-button-wrapper-three'>
                 <Button
                   variant="contained"
+                  color="success"
                   disabled={!products.length}
-                  onClick={() => setProduct([...products, { id: products.length+1}])}
+                  onClick={() => alert('Еще не готово')}
                 >
                     Рассчитать
                 </Button>
-                <MyButton showPage={changePage} page='greeting' text='На главную' color='white'/>
-                <button className="mybutton mybutton-red" onClick={() => setProduct([])}>Очистить</button>
+
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={() => changePage('greeting')}
+                >
+                    На главную
+                </Button>
+
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="error"
+                  disabled={!products.length}
+                  onClick={() => setProduct([])}
+                >
+                    Очистить
+                </Button>
             </div>
             </div>
         </div>

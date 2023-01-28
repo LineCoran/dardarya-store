@@ -14,34 +14,34 @@ function Product({ id, site }: IProduct) {
             <p className="product-title">{`Товар ${id}`}</p>
             <div className="product-inputs">
             <TextField
+                type='number'
                 label="Цена в юанях"
-                id="standard-start-adornment"
+                size='small'
                 sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">&#165;</InputAdornment>,
                 }}
-                variant="standard"
-                placeholder="Цена в юанях"
+                variant="outlined"
             />
             <TextField
-                label="Вес товара в килограммах"
-                id="standard-start-adornment"
+                label="Вес товара"
+                size='small'
+                type='number'
                 sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">кг</InputAdornment>,
                 }}
-                variant="standard"
-                placeholder="Вес товара"
+                variant='outlined'
             />
             {isTaobao && <TextField
-                label="Стоимость доставки"
+                label="Цена доставки"
+                size="small"
                 id="standard-start-adornment"
                 sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                 }}
-                variant="standard"
-                placeholder="Доставка"
+                variant='outlined'
             />}
             </div>
         </div>
