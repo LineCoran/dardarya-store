@@ -28,3 +28,14 @@
     color: white;
     background: #228896;
 }
+
+.mybutton-red {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 0, 0);
+    transition: 0.3s linear;
+}
+
+.mybutton-red:hover {
+    color: white;
+    background: #980b0b;
+}

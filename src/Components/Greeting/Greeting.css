@@ -26,3 +26,9 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 80px;
 }
+
+.greeting-button-wrapper-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}

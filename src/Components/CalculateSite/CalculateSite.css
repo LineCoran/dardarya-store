@@ -1,0 +1,15 @@
+.site-calculate {
+    padding: 2rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-calculate .title {
+    font-size: 1.5rem;
+    background: none;
+    color: black;
+    font-weight: 500;
+}

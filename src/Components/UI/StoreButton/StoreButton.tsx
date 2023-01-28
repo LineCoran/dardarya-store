@@ -3,11 +3,13 @@ import './StoreButton.css';
 
 interface IStoreButton {
     children: ReactNode;
+    site: string;
+    showPage: (value: string) => void;
 }
 
-function StoreButton({ children }: IStoreButton) {
+function StoreButton({ children, site, showPage }: IStoreButton) {
     return(
-        <div className="store-button">
+        <div onClick={() => showPage(site)} className="store-button">
             {children}
         </div>
     )
