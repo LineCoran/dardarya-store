@@ -8,10 +8,10 @@ function Greeting() {
         <section id='greeting' className="main-page greeting">
             <div className='greeting-inner'>
                 <div className='greeting-title-list'>
-                    <h2 className='title greeting-title'>
+                    <h2 className='page-title greeting-title'>
                         Привет, меня зовут Даша.
                     </h2>
-                    <h2 className='greeting-title'>
+                    <h2 className='page-title greeting-title'>
                         Я посредник по работе с китаем
                     </h2>  
                 </div>

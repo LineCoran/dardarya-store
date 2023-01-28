@@ -38,33 +38,3 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 80px;
 }
-
-@media (max-width: 768px) {
-    .greeting {
-        width: 100%;
-    }
-
-    .greeting-title {
-        font-size: 34px;
-    }
-}
-
-@media (max-width: 576px) {
-    .greeting-title {
-        font-size: 24px;
-    }
-
-    .mybutton {
-        padding: 12px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .greeting-title {
-        font-size: 18px;
-    }
-
-    .mybutton {
-        padding: 12px 20px;
-    }
-}
