@@ -21,7 +21,7 @@ function CalculateSite({ site }: ICalculateSite) {
         <section id={site} className="main-page absolute">
         <div className='site-calculate'>
             <h4 className='title title-calc'>
-                    {`Количестов товаров: ${countProducts}`}
+                    {`Количество товаров: ${countProducts}`}
                 </h4>
                 <ProductList site={site} products={products} />
                 <div className="site-calculate-footer">
