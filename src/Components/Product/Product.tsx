@@ -16,7 +16,7 @@ function Product({ id, site }: IProduct) {
             <TextField
                 label="Цена в юанях"
                 id="standard-start-adornment"
-                sx={{ m: 1, width: '25ch'}}
+                sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">&#165;</InputAdornment>,
                 }}
@@ -26,7 +26,7 @@ function Product({ id, site }: IProduct) {
             <TextField
                 label="Вес товара в килограммах"
                 id="standard-start-adornment"
-                sx={{ m: 1, width: '25ch'}}
+                sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">кг</InputAdornment>,
                 }}
@@ -36,7 +36,7 @@ function Product({ id, site }: IProduct) {
             {isTaobao && <TextField
                 label="Стоимость доставки"
                 id="standard-start-adornment"
-                sx={{ m: 1, width: '25ch'}}
+                sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                 }}

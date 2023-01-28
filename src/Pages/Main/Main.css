@@ -76,6 +76,10 @@
     .page-title {
         font-size: 34px;
     }
+
+    .greeting-button-wrapper-three {
+        grid-gap: 10px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -92,8 +96,9 @@
     .page-title {
         font-size: 18px;
     }
-
     .mybutton {
-        padding: 12px 20px;
+        padding: 4px 5px;
+        font-size: 16px;
+        letter-spacing: 1px;
     }
 }

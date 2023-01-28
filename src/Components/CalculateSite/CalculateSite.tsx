@@ -33,7 +33,13 @@ function CalculateSite({ site }: ICalculateSite) {
                     Добавить товар
                 </Button>
             <div className='greeting-button-wrapper greeting-button-wrapper-three'>
-                <button className="mybutton mybutton-blue" onClick={() => alert('расчет в разработке')}>Рассчитать</button>
+                <Button
+                  variant="contained"
+                  disabled={!products.length}
+                  onClick={() => setProduct([...products, { id: products.length+1}])}
+                >
+                    Рассчитать
+                </Button>
                 <MyButton showPage={changePage} page='greeting' text='На главную' color='white'/>
                 <button className="mybutton mybutton-red" onClick={() => setProduct([])}>Очистить</button>
             </div>
