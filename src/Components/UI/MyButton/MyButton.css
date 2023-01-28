@@ -1,0 +1,30 @@
+.mybutton {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 22px 30px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.mybutton-blue {
+    color: white;
+    background: #228896;
+    transition: 0.3s linear;
+}
+
+.mybutton-blue:hover {
+    background: #32b0c1;
+}
+
+.mybutton-white {
+    color: black;
+    background: white;
+    transition: 0.3s linear;
+}
+
+.mybutton-white:hover {
+    color: white;
+    background: #228896;
+}

@@ -1,0 +1,11 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background: whitesmoke;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.5);
+}

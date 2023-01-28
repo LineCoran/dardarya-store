@@ -1,8 +1,12 @@
 import './App.css';
+import Container from './Components/Container/Container';
+import Main from './Pages/Main/Main';
 
 function App() {
   return (
-    <h1>DarDarya Shop</h1>
+    <Container>
+      <Main />
+    </Container >
   );
 }
 

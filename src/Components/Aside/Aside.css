@@ -1,0 +1,14 @@
+.aside {
+    padding-top: 5%;
+    height: 100%;
+    width: 30%;
+}
+
+.aside-title {
+    text-align: center;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 38px;
+    color: black;
+}
