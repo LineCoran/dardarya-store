@@ -1,14 +1,13 @@
 import { TextField, InputAdornment } from "@mui/material";
-import { useState } from "react";
 import './Product.css';
 
 interface IProduct {
     id: number;
+    site: string;
 }
 
-function Product({ id }: IProduct) {
-
-    const [valueChina, setValueChina] = useState<number>(0)
+function Product({ id, site }: IProduct) {
+    const isTaobao = site !== 'taobao';
 
     return(
         <div className="product">
@@ -34,6 +33,16 @@ function Product({ id }: IProduct) {
                 variant="standard"
                 placeholder="Вес товара"
             />
+            {isTaobao && <TextField
+                label="Стоимость доставки"
+                id="standard-start-adornment"
+                sx={{ m: 1, width: '25ch'}}
+                InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+                variant="standard"
+                placeholder="Доставка"
+            />}
             </div>
         </div>
     )
