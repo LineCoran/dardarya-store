@@ -1,12 +1,18 @@
 import { TextField, InputAdornment } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { changeProductStatusSlice } from "../../store/productSlice";
+import { changeProductStatusSlice, changeProductValue } from "../../store/productSlice";
 import './Product.css';
 
 interface IProduct {
     id: number;
     site: string;
+}
+
+enum KeyOfProduct {
+  price = 'price',
+  weight = 'weight',
+  delivery = 'delivery',
 }
 
 function Product({ id, site }: IProduct) {
@@ -23,8 +29,6 @@ function Product({ id, site }: IProduct) {
     const [weightError, setWeightError] = useState(true);
 
     const [deliver, setDeliver] = useState('');
-    const [delivertDirty, setDeliverDirty] = useState(false);
-    const [deliverError, setDeliverError] = useState(true);
 
     const blurHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     switch (e.target.name) {
@@ -33,9 +37,6 @@ function Product({ id, site }: IProduct) {
         break;
       case 'weight':
         setWeightDirty(true);
-        break;
-      case 'deliver':
-        setDeliverDirty(true);
         break;
       default:
     }
@@ -57,22 +58,27 @@ function Product({ id, site }: IProduct) {
   } else {
     if ((priceDirty && !priceError) && (weightDirty && !weightError)) {
       dispatch(changeProductStatusSlice({id, newStatus: 'valid'}));
+      dispatch(changeProductValue({id, key: KeyOfProduct.price, value: price}))
+      dispatch(changeProductValue({id, key: KeyOfProduct.weight, value: weight}))
     }
   }
   }
 
   function alibabaCheckAllInputs() {
-    if ((priceDirty && priceError) || (weightDirty && weightError) || (delivertDirty && deliverError)) {
+    if ((priceDirty && priceError) || (weightDirty && weightError)) {
       dispatch(changeProductStatusSlice({id, newStatus: 'error'}));
   } else {
-    if ((priceDirty && !priceError) && (weightDirty && !weightError) && (delivertDirty && !deliverError)) {
+    if ((priceDirty && !priceError) && (weightDirty && !weightError)) {
       dispatch(changeProductStatusSlice({id, newStatus: 'valid'}));
+      dispatch(changeProductValue({id, key: KeyOfProduct.price, value: price}))
+      dispatch(changeProductValue({id, key: KeyOfProduct.weight, value: weight}))
+      dispatch(changeProductValue({id, key: KeyOfProduct.delivery, value: deliver}))
     }
   }
   }
 
   const filterNumber = (value: string) => {
-    return value.replace(/[^\d,]/g, "");
+    return value.replace(/[^\d.,]/g, "");
   }
 
   const priceHandler = (event: any) => {
@@ -90,18 +96,10 @@ function Product({ id, site }: IProduct) {
     setWeight(weight);
     if (weight.length > 0) {
         setWeightError(false);
+        setDeliver((Number(weight) * 7.5).toFixed(2).toString());
     } else {
         setWeightError(true);
-    }
-  }
-
-  const deliverHandler = (event: any) => {
-    const deliver = filterNumber(event.target.value)
-    setDeliver(deliver);
-    if (deliver.length > 0) {
-        setDeliverError(false);
-    } else {
-        setDeliverError(true);
+        setDeliver('');
     }
   }
 
@@ -152,8 +150,6 @@ function Product({ id, site }: IProduct) {
                 variant='outlined'
                 value={deliver}
                 onBlur={blurHandler}
-                onChange={deliverHandler}
-                error={deliverError && delivertDirty}
             />}
             </div>
         </div>
