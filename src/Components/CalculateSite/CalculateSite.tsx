@@ -1,12 +1,9 @@
 import { Button, ButtonGroup } from "@mui/material";
-import { useState } from "react";
 import { changePage } from "../../helpers/ChangePage";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import ProductList from "../ProductList/ProductList";
-import './CalculateSite.css'
-
-interface IProduct {
-    id: number;
-}
+import { addProduct, clearProducts } from "../../store/productSlice";
+import './CalculateSite.css';
 
 interface ICalculateSite {
     site: string;
@@ -14,8 +11,31 @@ interface ICalculateSite {
 
 function CalculateSite({ site }: ICalculateSite) {
 
-    const [products, setProduct] = useState<IProduct[]>([]);
+    const products = useAppSelector((store) => store.productReducer.product);
+    const dispatch = useAppDispatch()
     const countProducts = products.length || 0;
+
+    // Добавляем продукт
+    const addProductHandler = () => {
+        dispatch(addProduct(true));
+    }
+
+    // Очищаем все продукты
+    const clearProductHandler = () => {
+        dispatch(clearProducts(true));
+    }
+
+    function checkCanWeAdd() {
+        if (products.length === 0) return true;
+        return products.every((product) => product.status === 'valid');
+    }
+
+    const canWeAdd = checkCanWeAdd();
+
+    const homeHandle = () => {
+        clearProductHandler()
+        changePage('greeting')
+    }
 
     return (
         <section id={site} className="main-page absolute">
@@ -29,7 +49,8 @@ function CalculateSite({ site }: ICalculateSite) {
                   variant="contained"
                   sx={{marginTop: '0.5rem'}}
                   size="medium"
-                  onClick={() => setProduct([...products, { id: products.length+1}])}
+                  onClick={addProductHandler}
+                  disabled={!canWeAdd}
                 >
                     Добавить
                 </Button>
@@ -39,7 +60,7 @@ function CalculateSite({ site }: ICalculateSite) {
                   variant="contained"
                   color="success"
                   size="medium"
-                  disabled={!products.length}
+                  disabled={!products.length || !canWeAdd}
                   onClick={() => alert('Еще не готово')}
                 >
                     Рассчитать
@@ -48,7 +69,7 @@ function CalculateSite({ site }: ICalculateSite) {
                 <Button
                   variant="contained"
                   size="medium"
-                  onClick={() => changePage('greeting')}
+                  onClick={homeHandle}
                 >
                     Домой
                 </Button>
@@ -58,7 +79,7 @@ function CalculateSite({ site }: ICalculateSite) {
                   size="medium"
                   color="error"
                   disabled={!products.length}
-                  onClick={() => setProduct([])}
+                  onClick={clearProductHandler}
                 >
                     Очистить
                 </Button>
