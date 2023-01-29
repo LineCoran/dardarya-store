@@ -6,8 +6,8 @@ type Modal = {
 };
 
 const initialState: Modal = {
-    isOpen: false,
-    usdValue: 1,
+  isOpen: false,
+  usdValue: 1,
 };
 
 const modalSlice = createSlice({
@@ -15,17 +15,15 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     changeModalVisible(state, action: PayloadAction<boolean>) {
-      state.isOpen = action.payload
+      const currentState = state;
+      currentState.isOpen = action.payload;
     },
     changeUsdSlice(state, action: PayloadAction<number>) {
-      state.usdValue = action.payload
+      const currentState = state;
+      currentState.usdValue = action.payload;
     },
-    }
-  }
-);
+  },
+});
 
-export const {
-    changeModalVisible,
-    changeUsdSlice
-} = modalSlice.actions;
+export const { changeModalVisible, changeUsdSlice } = modalSlice.actions;
 export default modalSlice.reducer;

@@ -19,48 +19,56 @@ enum KeyOfProduct {
 }
 
 const initialState: ProductState = {
-    product: [{
-        id: 0,
-        status: 'default',
-        price: '',
-        weight: '',
-        delivery: ''
-     }
-    ],
+  product: [
+    {
+      id: 0,
+      status: 'default',
+      price: '',
+      weight: '',
+      delivery: '',
+    },
+  ],
 };
 
 const productSLice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addProduct(state, _action: PayloadAction<boolean>) {
-      state.product.push({
-        id: state.product.length,
-        status: 'default',
-        price: '',
-        weight: '',
-        delivery: '',
-      });
+    addProduct(state, action: PayloadAction<boolean>) {
+      const currentState = state;
+      if (action.payload) {
+        currentState.product.push({
+          id: state.product.length,
+          status: 'default',
+          price: '',
+          weight: '',
+          delivery: '',
+        });
+      }
     },
 
     clearProducts(state, action: PayloadAction<boolean>) {
-        state.product = [];
+      if (action.payload) {
+        const currentState = state;
+        currentState.product = [];
+      }
     },
 
-    changeProductValue(state, action: PayloadAction<{id: number, key: KeyOfProduct, value: string }>) {
+    changeProductValue(
+      state,
+      action: PayloadAction<{ id: number; key: KeyOfProduct; value: string }>,
+    ) {
       const newValue = action.payload.value;
-      state.product[action.payload.id][action.payload.key] = newValue;
+      const currentState = state;
+      currentState.product[action.payload.id][action.payload.key] = newValue;
     },
-    changeProductStatusSlice(state, action: PayloadAction<{id: number, newStatus: string}>) {
-      state.product[action.payload.id].status = action.payload.newStatus;
-  }
+    changeProductStatusSlice(state, action: PayloadAction<{ id: number; newStatus: string }>) {
+      const currentState = state;
+      currentState.product[action.payload.id].status = action.payload.newStatus;
+    },
   },
 });
 
-export const {
-  addProduct,
-  clearProducts,
-  changeProductStatusSlice,
-  changeProductValue,
-} = productSLice.actions;
+export const { addProduct, clearProducts, changeProductStatusSlice, changeProductValue } =
+  productSLice.actions;
 export default productSLice.reducer;

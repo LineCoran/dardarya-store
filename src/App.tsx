@@ -6,7 +6,7 @@ function App() {
   return (
     <Container>
       <Main />
-    </Container >
+    </Container>
   );
 }
 
