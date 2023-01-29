@@ -25,7 +25,7 @@ function Calculate() {
                 <div className='about-button-wrapper'>
                     <Button
                     variant="contained"
-                    size="medium"
+                    size="large"
                     onClick={() => changePage('greeting')}
                     >
                         На главную

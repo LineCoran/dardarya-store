@@ -20,7 +20,7 @@ function Greeting() {
                     <Button
                     variant="contained"
                     color="success"
-                    size="medium"
+                    size='large'
                     onClick={() => changePage('calculate')}
                     >
                         Расчет
@@ -28,7 +28,7 @@ function Greeting() {
 
                     <Button
                     variant="contained"
-                    size="medium"
+                    size='large'
                     onClick={() => changePage('about')}
                     >
                         Обо мне

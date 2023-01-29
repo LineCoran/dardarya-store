@@ -15,10 +15,6 @@ function CalculateSite({ site }: ICalculateSite) {
     const dispatch = useAppDispatch()
     const countProducts = products.length || 0;
 
-    // Добавляем продукт
-    const addProductHandler = () => {
-        dispatch(addProduct(true));
-    }
 
     // Очищаем все продукты
     const clearProductHandler = () => {
@@ -43,17 +39,10 @@ function CalculateSite({ site }: ICalculateSite) {
             <h4 className='title title-calc'>
                     {`Количество товаров: ${countProducts}`}
                 </h4>
-                <ProductList site={site} products={products} />
+                <ProductList site={site} products={products} canWeAdd={canWeAdd}/>
+                
                 <div className="site-calculate-footer">
-                <Button
-                  variant="contained"
-                  sx={{marginTop: '0.5rem'}}
-                  size="medium"
-                  onClick={addProductHandler}
-                  disabled={!canWeAdd}
-                >
-                    Добавить
-                </Button>
+                
                 <ButtonGroup fullWidth={true} sx={{marginTop: '0.5rem'}} variant="outlined" aria-label="outlined button group">
 
                 <Button
