@@ -4,18 +4,9 @@ import './PriceModal';
 
 function PriceModal() {
 
-    const usd = new Promise(async (res, rej) => {
-        try {
-            const response = await fetch('https://belarusbank.by/api/kursExchange?city=Минск');
-            console.log(response);
-            const data = await response.json();
-            res(data);
-        } catch(err) {
-            rej(err)
-        }
-    })
-
-    const wow = usd.then((result) => console.log(result));
+    fetch('https://belarusbank.by/api/kursExchange?city=Минск')
+      .then(response => response.json())
+      .then(json => console.log(json))
 
     const products = useAppSelector((store) => store.productReducer.product);
     return (
