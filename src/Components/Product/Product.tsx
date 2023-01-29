@@ -1,4 +1,5 @@
 import { TextField, InputAdornment } from "@mui/material";
+import { ChangeEvent, useState } from "react";
 import './Product.css';
 
 interface IProduct {
@@ -9,14 +10,38 @@ interface IProduct {
 function Product({ id, site }: IProduct) {
     const isTaobao = site !== 'taobao';
 
+    const [price, setPrice] = useState('');
+    const [priceDirty, setPriceDirty] = useState(false);
+    const [priceError, setPriceError] = useState(true);
+
+    const blurHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    switch (e.target.name) {
+      case 'price':
+        setPriceDirty(true);
+        break;
+      default:
+    }
+  };
+
+  const priceHandler = (event: any) => {
+    const string = event.target.value;
+    setPrice(string);
+    console.log(setPriceError);
+  }
+
     return(
         <div className="product">
             <p className="product-title">{`Товар ${id}`}</p>
             <div className="product-inputs">
             <TextField
-                type='number'
+                type='phone'
                 label="Цена в юанях"
+                name='price'
+                onBlur={blurHandler}
+                onChange={priceHandler}
+                error={priceError && priceDirty}
                 size='small'
+                value={price}
                 sx={{ m: 1, width: '15ch'}}
                 InputProps={{
                     startAdornment: <InputAdornment position="start">&#165;</InputAdornment>,
@@ -36,6 +61,7 @@ function Product({ id, site }: IProduct) {
             {isTaobao && <TextField
                 label="Цена доставки"
                 size="small"
+                value={1245}
                 id="standard-start-adornment"
                 sx={{ m: 1, width: '15ch'}}
                 InputProps={{
