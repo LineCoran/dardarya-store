@@ -1,13 +1,18 @@
+import { changePage } from '../../../helpers/ChangePage';
 import './NavLink.css';
 
 interface INavLink {
     name: string;
+    id: string;
 }
 
-function NavLink({name}: INavLink) {
+function NavLink({name, id}: INavLink) {
+    const classNameForLink = id !== 'greeting' 
+      ? 'nav-list-link'
+      : 'nav-list-link nav-list-link-active'
     return (
-        <li className="nav-list-item">
-            <button className='nav-list-link'>{name}</button>
+        <li onClick={() => changePage(id)} className="nav-list-item">
+            <button id={`link-${id}`} className={classNameForLink}>{name}</button>
         </li>
     )
 }

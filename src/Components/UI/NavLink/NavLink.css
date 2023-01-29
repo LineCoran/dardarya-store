@@ -15,6 +15,7 @@
     letter-spacing: 0.2rem;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .nav-list-link:after {
@@ -28,6 +29,11 @@
     background-color: #228896;
     transform: scaleX(0);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-list-link-active:after {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 .nav-list-link:hover::after {
