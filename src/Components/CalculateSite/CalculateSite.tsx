@@ -3,6 +3,7 @@ import { changePage } from "../../helpers/ChangePage";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import ProductList from "../ProductList/ProductList";
 import { clearProducts } from "../../store/productSlice";
+import { changeModalVisible } from "../../store/modalSlice";
 import './CalculateSite.css';
 
 interface ICalculateSite {
@@ -12,7 +13,7 @@ interface ICalculateSite {
 function CalculateSite({ site }: ICalculateSite) {
 
     const products = useAppSelector((store) => store.productReducer.product);
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
     const countProducts = products.length || 0;
 
 
@@ -50,7 +51,7 @@ function CalculateSite({ site }: ICalculateSite) {
                   color="success"
                   size="medium"
                   disabled={!products.length || !canWeAdd}
-                  onClick={() => alert('Еще не готово')}
+                  onClick={() => dispatch(changeModalVisible(true))}
                 >
                     Рассчитать
                 </Button>
