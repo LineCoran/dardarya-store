@@ -72,7 +72,7 @@ function Product({ id, site }: IProduct) {
   }
 
   const filterNumber = (value: string) => {
-    return value.replace(/[^\d\.,]/g, "");
+    return value.replace(/[^\d,]/g, "");
   }
 
   const priceHandler = (event: any) => {

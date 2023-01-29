@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from "@mui/material";
 import { changePage } from "../../helpers/ChangePage";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import ProductList from "../ProductList/ProductList";
-import { addProduct, clearProducts } from "../../store/productSlice";
+import { clearProducts } from "../../store/productSlice";
 import './CalculateSite.css';
 
 interface ICalculateSite {
