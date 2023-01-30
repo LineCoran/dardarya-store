@@ -1,5 +1,4 @@
 import priceForDeliveryInBLR from '../../helpers/DeliveryInBLR';
-import allPriceForDeliveryInBLR from '../../helpers/DeliveryInBLR';
 import { useAppSelector } from '../../hooks';
 import ProductResult from '../ProductResult/ProductResult';
 import './PriceModal.css';
