@@ -1,4 +1,3 @@
-import { Button, Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useAppDispatch } from '../../hooks';
 import { addProduct } from '../../store/productSlice';
