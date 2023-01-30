@@ -86,7 +86,6 @@ function Product({ id, site }: IProduct) {
       setPriceError(false);
     } else {
       setPriceError(true);
-      setPrice('');
     }
   };
 
@@ -97,19 +96,17 @@ function Product({ id, site }: IProduct) {
       setDeliverError(false);
     } else {
       setDeliverError(true);
-      setDeliver('');
     }
   };
 
   const weightHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const weightString = filterNumber(event.target.value);
-    const maxDeliver = Number(weightString) > 99 ? '99' : weightString;
-    setWeight(maxDeliver);
-    if (maxDeliver.length > 0) {
+    const maxWeight = Number(weightString) > 99 ? '99' : weightString;
+    setWeight(maxWeight);
+    if (maxWeight.length > 0) {
       setWeightError(false);
     } else {
       setWeightError(true);
-      setDeliver('');
     }
   };
 

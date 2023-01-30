@@ -6,7 +6,6 @@ import './PriceModal.css';
 function PriceModal() {
   const usd = useAppSelector((store) => store.modalReducer.usdValue);
   const products = useAppSelector((store) => store.productReducer.product);
-
   // цена выкупа
   const allPriceInChinaAlibaba = products.alibaba.reduce((acc, item) => acc + Number(item.price), 0);
   const allPriceInChinaTaobao = products.taobao.reduce((acc, item) => acc + Number(item.price), 0);

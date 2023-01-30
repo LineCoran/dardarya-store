@@ -16,7 +16,7 @@ function ProductResult({ product }: IProductResult) {
   const productNumber = product.id + 1;
   const usd = useAppSelector((store) => store.modalReducer.usdValue);
   const priceBYN = (((Number(product.price) + Number(product.delivery)) / 2) * 1.05).toFixed(2);
-  const priceDeliveryFromChinaToBLR = (Number(product.weight) * usd).toFixed(2);
+  const priceDeliveryFromChinaToBLR = (Number(product.weight) * usd * 7.5).toFixed(2);
   return (
     <div>
       <h3>{`Товар: ${productNumber}`}</h3>
