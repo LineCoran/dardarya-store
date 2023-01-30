@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Sites from '../enums/enums';
 
 type Product = {
   id: number;
@@ -9,7 +10,10 @@ type Product = {
 };
 
 type ProductState = {
-  product: Product[];
+  product: {
+    alibaba: Product[],
+    taobao: Product[],
+  };
 };
 
 enum KeyOfProduct {
@@ -19,52 +23,49 @@ enum KeyOfProduct {
 }
 
 const initialState: ProductState = {
-  product: [
-    {
-      id: 0,
-      status: 'default',
-      price: '',
-      weight: '',
-      delivery: '',
-    },
-  ],
+  product:  {
+    alibaba: [
+    ],
+    taobao: [
+    ],
+  } 
 };
 
 const productSLice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addProduct(state, action: PayloadAction<boolean>) {
+    addProduct(state, action: PayloadAction<Sites>) {
       const currentState = state;
-      if (action.payload) {
-        currentState.product.push({
-          id: state.product.length,
-          status: 'default',
-          price: '',
-          weight: '',
-          delivery: '',
-        });
-      }
+      const site = action.payload;
+      currentState.product[site].push({
+        id: state.product[site].length,
+        status: 'default',
+        price: '',
+        weight: '',
+        delivery: '',
+      });
     },
 
-    clearProducts(state, action: PayloadAction<boolean>) {
-      if (action.payload) {
-        const currentState = state;
-        currentState.product = [];
-      }
+    clearProducts(state, action: PayloadAction<Sites>) {
+      const site = action.payload
+      const currentState = state;
+      currentState.product[site] = [];
     },
 
     changeProductValue(
       state,
-      action: PayloadAction<{ id: number; key: KeyOfProduct; value: string }>,
+      action: PayloadAction<{ id: number; key: KeyOfProduct; value: string; sites: Sites }>,
     ) {
       const newValue = action.payload.value;
       const currentState = state;
-      currentState.product[action.payload.id][action.payload.key] = newValue;
+      const site = action.payload.sites;
+      currentState.product[site][action.payload.id][action.payload.key] = newValue;
     },
-    changeProductStatusSlice(state, action: PayloadAction<{ id: number; newStatus: string }>) {
+    changeProductStatusSlice(state, action: PayloadAction<{ id: number; newStatus: string; sites: Sites }>) {
       const currentState = state;
-      currentState.product[action.payload.id].status = action.payload.newStatus;
+      const site = action.payload.sites
+      currentState.product[site][action.payload.id].status = action.payload.newStatus;
     },
   },
 });

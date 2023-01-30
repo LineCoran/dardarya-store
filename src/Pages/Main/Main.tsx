@@ -6,6 +6,7 @@ import Greeting from '../../Components/Greeting/Greeting';
 import TransitionsModal from '../../Components/TransitionsModal/TransitionsModal';
 import { useAppDispatch } from '../../hooks';
 import { changeUsdSlice } from '../../store/modalSlice';
+import Sites from '../../enums/enums';
 import './Main.css';
 
 function Main() {
@@ -20,8 +21,8 @@ function Main() {
         <Greeting />
         <Calculate />
         <About />
-        <CalculateSite site='alibaba' />
-        <CalculateSite site='taobao' />
+        <CalculateSite site={Sites.alibaba} />
+        <CalculateSite site={Sites.taobao} />
         <TransitionsModal />
       </div>
     </main>

@@ -1,12 +1,13 @@
 import { TextField, InputAdornment } from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import Sites from '../../enums/enums';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { changeProductStatusSlice, changeProductValue } from '../../store/productSlice';
 import './Product.css';
 
 interface IProduct {
   id: number;
-  site: string;
+  site: Sites;
 }
 
 enum KeyOfProduct {
@@ -18,7 +19,7 @@ enum KeyOfProduct {
 function Product({ id, site }: IProduct) {
   const isTaobao = site !== 'taobao';
   const dispatch = useAppDispatch();
-  const productStatus = useAppSelector((store) => store.productReducer.product)[id].status;
+  const productStatus = useAppSelector((store) => store.productReducer.product)[site][id].status;
 
   const [price, setPrice] = useState('');
   const [priceDirty, setPriceDirty] = useState(false);
@@ -49,22 +50,22 @@ function Product({ id, site }: IProduct) {
 
   function taobaoCheckAllInputs() {
     if ((priceDirty && priceError) || (weightDirty && weightError)) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'error' }));
+      dispatch(changeProductStatusSlice({ id, newStatus: 'error', sites: site }));
     } else if (priceDirty && !priceError && weightDirty && !weightError) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'valid' }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight }));
+      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site  }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site  }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight, sites: site }));
     }
   }
 
   function alibabaCheckAllInputs() {
     if ((priceDirty && priceError) || (deliverDirty && deliverError) || (weightDirty && weightError)) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'error' }));
+      dispatch(changeProductStatusSlice({ id, newStatus: 'error', sites: site  }));
     } else if (priceDirty && !priceError && deliverDirty && !deliverError && weightDirty && !weightError) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'valid' }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.delivery, value: deliver }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight }));
+      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site  }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site  }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.delivery, value: deliver, sites: site  }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight, sites: site  }));
     }
   }
 

@@ -8,13 +8,21 @@ function PriceModal() {
   const products = useAppSelector((store) => store.productReducer.product);
 
   // цена выкупа
-  const allPriceInChina = products.reduce((acc, item) => acc + Number(item.price), 0);
-  const allDeliverInChina = products.reduce((acc, item) => acc + Number(item.delivery), 0);
-  const allPriceInBYN = (((allPriceInChina + allDeliverInChina) / 2) * 1.05).toFixed(2);
+  const allPriceInChinaAlibaba = products.alibaba.reduce((acc, item) => acc + Number(item.price), 0);
+  const allPriceInChinaTaobao = products.taobao.reduce((acc, item) => acc + Number(item.price), 0);
+  const allPriceInChina = Number(allPriceInChinaAlibaba) + Number(allPriceInChinaTaobao);
+
+  const allDeliveryInChina = Number(products.alibaba.reduce((acc, item) => acc + Number(item.delivery), 0));
+  const allPriceInBLRWithOutPercent = Number(((allPriceInChina + allDeliveryInChina) / 2).toFixed(2));
+
+  const allPriceInBYN = allPriceInBLRWithOutPercent > 400 ? allPriceInBLRWithOutPercent.toFixed(2) : (allPriceInBLRWithOutPercent * 1.05).toFixed(2);
 
   // доставка с Китая до РБ
-  const allWeight = products.reduce((acc, item) => acc + Number(item.weight), 0);
-  const allPriceForDeliveryFromChinaToRB = (allWeight * 7.5 * usd).toFixed(2);
+  const allWeightAlibaba = products.alibaba.reduce((acc, item) => acc + Number(item.weight), 0);
+  const allWeightTaobao = products.taobao.reduce((acc, item) => acc + Number(item.weight), 0);
+  const allWeight = Number(allWeightAlibaba) + Number(allWeightTaobao);
+
+  const allPriceForDeliveryFromChinaToRB = allWeight > 50 ? (allWeight * 7.5 * usd).toFixed(2) : (allWeight * 7 * usd).toFixed(2);
 
   // доставка по РБ
   const allPriceForDeliveryBLR = priceForDeliveryInBLR(Number(allWeight));
@@ -29,11 +37,29 @@ function PriceModal() {
       </p>
       <hr />
       <br />
-      {products.map((product) => (
-        <ProductResult key={product.id} product={product} />
-      ))}
-      <hr />
-      <br />
+      {
+        (products.alibaba.length) 
+        ? <div className='result-price-list' key={'alibaba'}>
+          <h3 className='title-price'>Товары с Alibaba</h3>
+          {
+            products.alibaba.map((product) => (
+              <ProductResult key={product.id} product={product} />
+          ))}
+          </div>
+        : <></>
+      }
+
+      {
+        (products.taobao.length) 
+        ? <div className='result-price-list' key={'taobao'}>
+          <h3 className='title-price'>Товары с Taobao</h3>
+          {
+            products.taobao.map((product) => (
+              <ProductResult key={product.id} product={product} />
+          ))}
+          </div>
+        : <></>
+      }
       <p>
         Общая масса товаров: <span style={{ fontWeight: '600' }}>{allWeight} кг.</span>
       </p>

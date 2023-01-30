@@ -5,19 +5,20 @@ import ProductList from '../ProductList/ProductList';
 import { clearProducts } from '../../store/productSlice';
 import { changeModalVisible } from '../../store/modalSlice';
 import './CalculateSite.css';
+import Sites from '../../enums/enums';
 
 interface ICalculateSite {
-  site: string;
+  site: Sites;
 }
 
 function CalculateSite({ site }: ICalculateSite) {
-  const products = useAppSelector((store) => store.productReducer.product);
+  const products = useAppSelector((store) => store.productReducer.product[site]);
   const dispatch = useAppDispatch();
   const countProducts = products.length || 0;
 
   // Очищаем все продукты
   const clearProductHandler = () => {
-    dispatch(clearProducts(true));
+    dispatch(clearProducts(site));
   };
 
   function checkCanWeAdd() {
@@ -28,10 +29,9 @@ function CalculateSite({ site }: ICalculateSite) {
   const canWeAdd = checkCanWeAdd();
 
   const homeHandle = () => {
-    clearProductHandler();
     changePage('greeting');
   };
-
+  console.log(site);
   return (
     <section id={site} className='main-page absolute'>
       <div className='site-calculate'>

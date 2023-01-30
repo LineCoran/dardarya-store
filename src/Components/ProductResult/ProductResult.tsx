@@ -23,7 +23,6 @@ function ProductResult({ product }: IProductResult) {
       <p>{`Масса: ${product.weight} кг.`}</p>
       <p>{`Цена выкупа: ${priceBYN} BYN`}</p>
       <p>{`Цена доставки до РБ: ${priceDeliveryFromChinaToBLR} BYN`}</p>
-      <br />
       <hr />
     </div>
   );

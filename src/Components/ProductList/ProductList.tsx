@@ -3,6 +3,7 @@ import { useAppDispatch } from '../../hooks';
 import { addProduct } from '../../store/productSlice';
 import Product from '../Product/Product';
 import './ProductList.css';
+import Sites from '../../enums/enums';
 
 type ProductType = {
   id: number;
@@ -10,7 +11,7 @@ type ProductType = {
 
 interface IProductList {
   products: ProductType[];
-  site: string;
+  site: Sites;
   canWeAdd: boolean;
 }
 
@@ -18,7 +19,7 @@ function ProductList({ products, site, canWeAdd }: IProductList) {
   const dispatch = useAppDispatch();
 
   const addProductHandler = () => {
-    dispatch(addProduct(true));
+    dispatch(addProduct(site));
   };
 
   if (products.length) {

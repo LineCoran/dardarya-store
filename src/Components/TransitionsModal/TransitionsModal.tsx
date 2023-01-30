@@ -18,6 +18,7 @@ const style = {
   boxShadow: 40,
   overflow: 'scroll',
   p: 4,
+  padding: '1rem',
 };
 
 export default function TransitionsModal() {
