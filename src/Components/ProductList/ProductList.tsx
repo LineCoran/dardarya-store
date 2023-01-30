@@ -1,4 +1,5 @@
-import { Button } from '@mui/material';
+import { Button, Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import { useAppDispatch } from '../../hooks';
 import { addProduct } from '../../store/productSlice';
 import Product from '../Product/Product';
@@ -21,45 +22,27 @@ function ProductList({ products, site, canWeAdd }: IProductList) {
   const addProductHandler = () => {
     dispatch(addProduct(site));
   };
-
-  if (products.length) {
     return (
       <div className='product-list-wrapper'>
         <div className='product-list'>
-          {products.map((product) => (
+          {(products.length) 
+          ? products.map((product) => (
             <Product site={site} key={product.id} id={product.id} />
-          ))}
+          ))
+          : <></>
+        }
         </div>
-        <Button
-          variant='contained'
-          sx={{
-            marginTop: '0.5rem',
-          }}
-          size='medium'
-          onClick={addProductHandler}
-          disabled={!canWeAdd}
-        >
-          Добавить
-        </Button>
+        <Fab
+            onClick={addProductHandler}
+            color="primary"
+            aria-label="add"
+            disabled={!canWeAdd}
+            sx={{marginTop: '0.5rem'}}
+          >
+            <AddIcon />
+          </Fab>
       </div>
     );
-  }
-  return (
-    <div className='product-list-wrapper'>
-      <div className='product-list' />
-      <Button
-        variant='contained'
-        sx={{
-          marginTop: '0.5rem',
-        }}
-        size='medium'
-        onClick={addProductHandler}
-        disabled={!canWeAdd}
-      >
-        Добавить
-      </Button>
-    </div>
-  );
-}
+  } 
 
 export default ProductList;

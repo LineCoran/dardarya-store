@@ -1,4 +1,7 @@
-import { Button, ButtonGroup } from '@mui/material';
+import { ButtonGroup, Fab } from '@mui/material';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Home from '@mui/icons-material/Home';
+import DeleteIcon from '@mui/icons-material/Delete';
 import changePage from '../../helpers/ChangePage';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import ProductList from '../ProductList/ProductList';
@@ -31,7 +34,6 @@ function CalculateSite({ site }: ICalculateSite) {
   const homeHandle = () => {
     changePage('greeting');
   };
-  console.log(site);
   return (
     <section id={site} className='main-page absolute'>
       <div className='site-calculate'>
@@ -40,34 +42,34 @@ function CalculateSite({ site }: ICalculateSite) {
 
         <div className='site-calculate-footer'>
           <ButtonGroup
-            fullWidth
             sx={{ marginTop: '0.5rem' }}
             variant='outlined'
             aria-label='outlined button group'
           >
-            <Button
-              variant='contained'
-              color='success'
-              size='medium'
-              disabled={!products.length || !canWeAdd}
+
+            <Fab
               onClick={() => dispatch(changeModalVisible(true))}
+              color="success"
+              disabled={!products.length || !canWeAdd}
             >
-              Рассчитать
-            </Button>
+              <AttachMoneyIcon />
+            </Fab>
 
-            <Button variant='contained' size='medium' onClick={homeHandle}>
-              Домой
-            </Button>
+            <Fab
+              onClick={homeHandle}
+              color='primary'
+              sx={{margin: '0 3rem'}}
+            >
+              <Home />
+            </Fab>
 
-            <Button
-              variant='contained'
-              size='medium'
-              color='error'
-              disabled={!products.length}
+            <Fab
               onClick={clearProductHandler}
+              color="error"
+              disabled={!products.length}
             >
-              Очистить
-            </Button>
+            <DeleteIcon />
+          </Fab>
           </ButtonGroup>
         </div>
       </div>

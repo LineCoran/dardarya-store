@@ -1,5 +1,5 @@
 import { TextField, InputAdornment } from '@mui/material';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Sites from '../../enums/enums';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { changeProductStatusSlice, changeProductValue } from '../../store/productSlice';

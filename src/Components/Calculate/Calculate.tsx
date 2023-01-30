@@ -1,4 +1,5 @@
-import { Button } from '@mui/material';
+import { Home } from '@mui/icons-material';
+import { Fab } from '@mui/material';
 import changePage from '../../helpers/ChangePage';
 import AlibabaIcon from '../Icons/AlibabaIcon';
 import TaobaoIcon from '../Icons/TaobaoIcon';
@@ -23,9 +24,13 @@ function Calculate() {
         </StoreButton>
       </div>
       <div className='about-button-wrapper'>
-        <Button variant='contained' size='large' onClick={() => changePage('greeting')}>
-          На главную
-        </Button>
+
+            <Fab
+              onClick={() => changePage('greeting')}
+              color='primary'
+            >
+              <Home />
+            </Fab>
       </div>
     </section>
   );
