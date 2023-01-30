@@ -1,17 +1,23 @@
-const allPriceForDeliveryInBLR = (weight: number) => {
-  if (weight < 2) {
-    return 2;
+function priceForDeliveryInBLR(weight: number) {
+  const MAX_WEIGHT = 30;
+  let result = 0;
+  let currentWeight = weight;
+  if (currentWeight === 0) return 0;
+  if (currentWeight > 30) {
+    result += Math.floor(currentWeight / MAX_WEIGHT) * 11;
+    currentWeight = currentWeight % MAX_WEIGHT;
   }
-  if (weight < 10) {
-    return 6;
+  if (currentWeight > 20) {
+    result += 11;
+  } else if (currentWeight > 10) {
+    result = result + 8;
+  } else if (currentWeight > 2) {
+    result += 6;
+  } else  if (currentWeight > 0) {
+    result += 5;
   }
-  if (weight < 20) {
-    return 8;
-  }
-  if (weight < 30) {
-    return 11;
-  }
-  return 20;
-};
 
-export default allPriceForDeliveryInBLR;
+  return result;
+}
+
+export default priceForDeliveryInBLR;

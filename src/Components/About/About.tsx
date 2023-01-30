@@ -15,7 +15,6 @@ function About() {
             Меня зовут Даша и я посредник по закупкам товаров в Китае. Я привезла 300 кг различного
             товара, могу помочь и тебе!
           </p>
-
           <div className='contacts'>
             <ContactLink link='https://www.instagram.com/dardaryya/' name='Instagram'>
               <InstagramIcon />

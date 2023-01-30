@@ -4,8 +4,8 @@ type Product = {
   id: number;
   status: string;
   price: string;
-  weight: string;
   delivery: string;
+  weight: string;
 };
 
 type ProductState = {

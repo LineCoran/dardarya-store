@@ -29,11 +29,16 @@ function Product({ id, site }: IProduct) {
   const [weightError, setWeightError] = useState(true);
 
   const [deliver, setDeliver] = useState('');
+  const [deliverDirty, setDeliverDirty] = useState(false);
+  const [deliverError, setDeliverError] = useState(true);
 
   const blurHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     switch (e.target.name) {
       case 'price':
         setPriceDirty(true);
+        break;
+      case 'deliver':
+        setDeliverDirty(true);
         break;
       case 'weight':
         setWeightDirty(true);
@@ -53,13 +58,13 @@ function Product({ id, site }: IProduct) {
   }
 
   function alibabaCheckAllInputs() {
-    if ((priceDirty && priceError) || (weightDirty && weightError)) {
+    if ((priceDirty && priceError) || (deliverDirty && deliverError) || (weightDirty && weightError)) {
       dispatch(changeProductStatusSlice({ id, newStatus: 'error' }));
-    } else if (priceDirty && !priceError && weightDirty && !weightError) {
+    } else if (priceDirty && !priceError && deliverDirty && !deliverError && weightDirty && !weightError) {
       dispatch(changeProductStatusSlice({ id, newStatus: 'valid' }));
       dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight }));
       dispatch(changeProductValue({ id, key: KeyOfProduct.delivery, value: deliver }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight }));
     }
   }
 
@@ -76,19 +81,31 @@ function Product({ id, site }: IProduct) {
   const priceHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const priceString = filterNumber(event.target.value);
     setPrice(priceString);
-    if (price.length > 0) {
+    if (priceString.length > 0) {
       setPriceError(false);
     } else {
       setPriceError(true);
+      setPrice('');
+    }
+  };
+
+  const deliverHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const deliverString = filterNumber(event.target.value);
+    setDeliver(deliverString);
+    if (deliverString.length > 0) {
+      setDeliverError(false);
+    } else {
+      setDeliverError(true);
+      setDeliver('');
     }
   };
 
   const weightHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const weightString = filterNumber(event.target.value);
-    setWeight(weightString);
-    if (weightString.length > 0) {
+    const maxDeliver = Number(weightString) > 99 ? '99' : weightString;
+    setWeight(maxDeliver);
+    if (maxDeliver.length > 0) {
       setWeightError(false);
-      setDeliver((Number(weightString) * 7.5).toFixed(2).toString());
     } else {
       setWeightError(true);
       setDeliver('');
@@ -101,7 +118,7 @@ function Product({ id, site }: IProduct) {
       <div className='product-inputs'>
         <TextField
           type='number'
-          label='Цена в юанях'
+          label='Цена выкупа'
           name='price'
           size='small'
           sx={{ m: 1, width: '15ch' }}
@@ -114,6 +131,23 @@ function Product({ id, site }: IProduct) {
           onChange={priceHandler}
           error={priceError && priceDirty}
         />
+        {isTaobao && (
+          <TextField
+            label='Доставка в Китае'
+            size='small'
+            id='standard-start-adornment'
+            sx={{ m: 1, width: '15ch' }}
+            InputProps={{
+              startAdornment: <InputAdornment position='start'>&#165;</InputAdornment>,
+            }}
+            name='deliver'
+            variant='outlined'
+            value={deliver}
+            onBlur={blurHandler}
+            onChange={deliverHandler}
+            error={deliverError && deliverDirty}
+          />
+        )}
         <TextField
           label='Вес товара'
           size='small'
@@ -129,21 +163,6 @@ function Product({ id, site }: IProduct) {
           onChange={weightHandler}
           error={weightError && weightDirty}
         />
-        {isTaobao && (
-          <TextField
-            label='Цена доставки'
-            size='small'
-            id='standard-start-adornment'
-            sx={{ m: 1, width: '15ch' }}
-            InputProps={{
-              startAdornment: <InputAdornment position='start'>$</InputAdornment>,
-            }}
-            name='deliver'
-            variant='outlined'
-            value={deliver}
-            onBlur={blurHandler}
-          />
-        )}
       </div>
     </div>
   );
