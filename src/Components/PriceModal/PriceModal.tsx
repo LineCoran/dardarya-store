@@ -43,7 +43,7 @@ function PriceModal() {
           <h3 className='title-price'>Товары с Alibaba</h3>
           {
             products.alibaba.map((product) => (
-              <ProductResult key={product.id} product={product} />
+              <ProductResult key={product.id * Math.random()} product={product} />
           ))}
           </div>
         : <></>
@@ -55,7 +55,7 @@ function PriceModal() {
           <h3 className='title-price'>Товары с Taobao</h3>
           {
             products.taobao.map((product) => (
-              <ProductResult key={product.id} product={product} />
+              <ProductResult key={product.id * Math.random()} product={product} />
           ))}
           </div>
         : <></>
