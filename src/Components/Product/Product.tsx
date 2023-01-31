@@ -122,6 +122,7 @@ function Product({ id, site }: IProduct) {
           sx={{ m: 1, width: '15ch' }}
           InputProps={{
             startAdornment: <InputAdornment position='start'>&#165;</InputAdornment>,
+            inputMode: 'numeric',
           }}
           variant='outlined'
           value={price}
@@ -137,6 +138,7 @@ function Product({ id, site }: IProduct) {
             sx={{ m: 1, width: '15ch' }}
             InputProps={{
               startAdornment: <InputAdornment position='start'>&#165;</InputAdornment>,
+              inputMode: 'numeric',
             }}
             name='deliver'
             variant='outlined'
@@ -153,6 +155,7 @@ function Product({ id, site }: IProduct) {
           sx={{ m: 1, width: '15ch' }}
           InputProps={{
             startAdornment: <InputAdornment position='start'>кг</InputAdornment>,
+            inputMode: 'numeric',
           }}
           variant='outlined'
           name='weight'
