@@ -22,10 +22,6 @@ function About() {
             <ContactLink link='https://t.me/dorogyshadasha/' name='Telegram'>
               <TelegramIcon />
             </ContactLink>
-            <form>
-              <input type="text" pattern="\d*"/>
-              <button type="submit">Submit</button>
-          </form>
           </div>
         </div>
         <div className='about-button-wrapper'>
