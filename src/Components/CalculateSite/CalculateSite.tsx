@@ -70,6 +70,10 @@ function CalculateSite({ site }: ICalculateSite) {
             >
             <DeleteIcon />
           </Fab>
+          <form>
+              <input type="text" pattern="\d*"/>
+              <button type="submit">Submit</button>
+            </form>
           </ButtonGroup>
         </div>
       </div>
