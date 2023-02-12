@@ -45,3 +45,9 @@
 .contacts:first-child {
     margin-bottom: 20px;
 }
+
+.about-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}

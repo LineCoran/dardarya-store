@@ -3,6 +3,7 @@ import Aside from '../../Components/Aside/Aside';
 import Calculate from '../../Components/Calculate/Calculate';
 import CalculateSite from '../../Components/CalculateSite/CalculateSite';
 import Greeting from '../../Components/Greeting/Greeting';
+import Stars from '../../Components/Stars/Stars';
 import TransitionsModal from '../../Components/TransitionsModal/TransitionsModal';
 import { useAppDispatch } from '../../hooks';
 import { changeUsdSlice } from '../../store/modalSlice';
@@ -21,6 +22,7 @@ function Main() {
         <Greeting />
         <Calculate />
         <About />
+        <Stars />
         <CalculateSite site={Sites.alibaba} />
         <CalculateSite site={Sites.taobao} />
         <TransitionsModal />

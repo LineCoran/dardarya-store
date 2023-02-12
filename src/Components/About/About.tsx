@@ -28,6 +28,9 @@ function About() {
           <Button variant='contained' size='large' onClick={() => changePage('greeting')}>
             Главная
           </Button>
+          <Button variant='contained' size='large' onClick={() => changePage('stars')}>
+            Отзывы
+          </Button>
         </div>
       </div>
     </section>
