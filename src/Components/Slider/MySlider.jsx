@@ -78,7 +78,6 @@ export default function TextMobileStepper() {
         maxWidth: 400,
         width: '100%',
         p: 2,
-        backdropFilter: 'blur(1px)',
         borderRadius: '50px',
         marginBottom: '1rem',
         color: 'black',
