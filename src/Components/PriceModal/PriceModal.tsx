@@ -39,7 +39,7 @@ function PriceModal() {
       {
         (products.alibaba.length) 
         ? <div className='result-price-list' key={'alibaba'}>
-          <h3 className='title-price'>Товары с Alibaba</h3>
+          <h3 className='title-price'>Товары с 1688</h3>
           {
             products.alibaba.map((product) => (
               <ProductResult key={product.id * Math.random()} product={product} />
