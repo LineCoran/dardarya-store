@@ -1,0 +1,16 @@
+.price-modal-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-price-list {
+    border:  1px solid black;
+    margin-bottom: 1rem;
+}
+
+.title-price {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}

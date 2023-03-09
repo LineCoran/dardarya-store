@@ -1,0 +1,32 @@
+.product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    border-top: rgba(0, 0, 0, 0.3) solid 1px;
+}
+
+.product-valid {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.product-error {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.product-default {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+
+.product-title {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.product-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
