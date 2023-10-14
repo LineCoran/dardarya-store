@@ -24,7 +24,9 @@ export const Order = () => {
           <TextField label={'hello'} />
           <TextField label={'hello'} />
           <TextField label={'hello'} />
-          <Button disabled={false} variant={'contained'}>Отправить</Button>
+          <Button disabled={false} variant={'contained'}>
+            Отправить
+          </Button>
         </form>
       </Grid>
     </Grid>
