@@ -1,5 +1,8 @@
 export enum Pages {
   Main = '/',
   About = '/about',
-  Cost = '/cost',
+  Calculate = '/calculate',
+  Reviews = '/reviews',
+  Taobao = '/calculate/taobao',
+  Alibaba = '/calculate/alibaba',
 }

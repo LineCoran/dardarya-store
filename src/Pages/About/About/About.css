@@ -1,9 +1,9 @@
 .about {
-    width: 100%;
+    height: 100%;
     position: relative;
     padding: 3rem 1rem;
     justify-content: center;
-    background: url('../../assets/img/something.JPG') bottom right / cover no-repeat;
+    background: url('../../../assets/img/something.JPG') bottom right / cover no-repeat;
 }
 
 .about-inner {

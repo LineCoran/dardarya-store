@@ -1,11 +1,16 @@
 import { Button } from '@mui/material';
-import changePage from '../../../helpers/ChangePage';
+import { useNavigate } from 'react-router-dom';
 import ContactLink from '../../../Components/ContactLink/ContactLink';
 import InstagramIcon from '../../../Components/Icons/InstagramIcon';
 import TelegramIcon from '../../../Components/Icons/TelegramIcon';
+import { Pages } from '../../../core/Pages';
 import './About.css';
 
-const About = () => {
+export const About = () => {
+  const navigate = useNavigate();
+  const handleNavigateMain = () => navigate(Pages.Main);
+  const handleNavigateReviews = () => navigate(Pages.Reviews);
+
   return (
     <section id={'about'} className={'main-page about absolute'}>
       <div className={'about-inner'}>
@@ -25,10 +30,10 @@ const About = () => {
           </div>
         </div>
         <div className={'about-button-wrapper'}>
-          <Button variant={'contained'} size={'large'} onClick={() => changePage('greeting')}>
+          <Button variant={'contained'} size={'large'} onClick={handleNavigateMain}>
             Главная
           </Button>
-          <Button variant={'contained'} size={'large'} onClick={() => changePage('stars')}>
+          <Button variant={'contained'} size={'large'} onClick={handleNavigateReviews}>
             Отзывы
           </Button>
         </div>
@@ -36,5 +41,3 @@ const About = () => {
     </section>
   );
 };
-
-export default About;

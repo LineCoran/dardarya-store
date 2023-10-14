@@ -1,33 +1,36 @@
-import About from '../About/About/About';
-import Aside from '../../Components/Aside/Aside';
-import Calculate from '../../Components/Calculate/Calculate';
-import CalculateSite from '../../Components/CalculateSite/CalculateSite';
-import Stars from '../../Components/Stars/Stars';
-import TransitionsModal from '../../Components/TransitionsModal/TransitionsModal';
-import { useAppDispatch } from '../../hooks';
-import { changeUsdSlice } from '../../store/modalSlice';
-import Sites from '../../enums/enums';
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import changePage from '../../helpers/ChangePage';
 import './Main.css';
+import { Pages } from '../../core/Pages';
 
-const Main = () => {
-  const dispatch = useAppDispatch();
-  fetch('https://www.nbrb.by/api/exrates/rates/431')
-    .then((response) => response.json())
-    .then((json) => dispatch(changeUsdSlice(json.Cur_OfficialRate)));
+export const Main = () => {
+  const navigate = useNavigate();
+  const handleClickAbout = () => navigate(Pages.About);
+  const handleClickCalculate = () => navigate(Pages.Calculate);
   return (
-    <main className={'main'}>
-      <Aside />
-      <div className={'pages'}>
-        {/* <Greeting /> */}
-        {/* <Calculate />
-        <About />
-        <Stars />
-        <CalculateSite site={Sites.alibaba} />
-        <CalculateSite site={Sites.taobao} />
-        <TransitionsModal /> */}
+    <section id={'greeting'} className={'main-page greeting visible'}>
+      <div className={'greeting-inner'}>
+        <div className={'greeting-title-list'}>
+          <h2 className={'page-title greeting-title title'}>Привет, меня зовут Дарья.</h2>
+          <h2 className={'page-title greeting-title title'}>Я посредник по работе с Китаем</h2>
+        </div>
+
+        <div className={'greeting-button-wrapper'}>
+          <Button
+            variant={'contained'}
+            color={'success'}
+            size={'large'}
+            onClick={handleClickCalculate}
+          >
+            Расчет
+          </Button>
+
+          <Button variant={'contained'} size={'large'} onClick={handleClickAbout}>
+            Обо мне
+          </Button>
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
-
-export default Main;

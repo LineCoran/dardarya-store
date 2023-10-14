@@ -1,33 +1,38 @@
 import Navigation from '../Navigation/Navigation';
 import './Aside.css';
+import { Pages } from '../../core/Pages';
 
-const navElements: NavElement[] = [
+export const navElements: NavElement[] = [
   {
     name: 'Главная',
-    id: 'greeting',
+    path: Pages.Main,
   },
   {
     name: 'Расчет',
-    id: 'calculate',
+    path: Pages.Calculate,
   },
   {
     name: 'Обо мне',
-    id: 'about',
+    path: Pages.About,
+  },
+  {
+    name: 'Отзывы',
+    path: Pages.Reviews,
   },
 ];
 
-type NavElement = {
+export type NavElement = {
   name: string;
-  id: string;
+  path: string;
 };
 
-function Aside() {
+const Aside = () => {
   return (
-    <aside className='aside'>
-      <h2 className='aside-title'>DarDaryya</h2>
+    <aside className={'aside'}>
+      <h2 className={'aside-title'}>DarDaryya</h2>
       <Navigation links={navElements} />
     </aside>
   );
-}
+};
 
 export default Aside;

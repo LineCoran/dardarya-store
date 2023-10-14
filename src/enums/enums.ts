@@ -1,6 +1,6 @@
 enum Sites {
-    alibaba = 'alibaba',
-    taobao = 'taobao'
-  }
+  alibaba = 'alibaba',
+  taobao = 'taobao',
+}
 
-  export default Sites;
+export default Sites;
