@@ -58,7 +58,7 @@ const PriceModal = () => {
           ))}
         </div>
       ) : (
-        <></>
+        <React.Fragment></React.Fragment>
       )}
 
       {products.taobao.length ? (
@@ -69,7 +69,7 @@ const PriceModal = () => {
           ))}
         </div>
       ) : (
-        <></>
+        <React.Fragment></React.Fragment>
       )}
       <p>
         Общая масса товаров: <span style={{ fontWeight: '600' }}>{allWeight} кг.</span>
