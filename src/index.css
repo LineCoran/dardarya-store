@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@property --ButtonGradientColor1 {
+  syntax: '<color>';
+  initial-value: rgb(229, 66, 125);
+  inherits: false;
+}
+
+@property --ButtonGradientColor2 {
+  syntax: '<color>';
+  initial-value: rgb(159, 74, 225);
+  inherits: false;
+}

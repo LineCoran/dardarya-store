@@ -19,6 +19,10 @@ export const navElements: NavElement[] = [
     name: 'Отзывы',
     path: Pages.Reviews,
   },
+  {
+    name: 'Заказ',
+    path: Pages.Order,
+  },
 ];
 
 export type NavElement = {

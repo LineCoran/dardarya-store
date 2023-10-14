@@ -1,4 +1,6 @@
 import './App.css';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './core/theme/theme';
 import Container from './Components/Container/Container';
 import { Router } from './providers/Router/Router';
 import { useAppDispatch } from './hooks';
@@ -11,10 +13,12 @@ const App = () => {
     .then((response) => response.json())
     .then((json) => dispatch(changeUsdSlice(json.Cur_OfficialRate)));
   return (
-    <Container>
-      <TransitionsModal />
-      <Router />
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <TransitionsModal />
+        <Router />
+      </Container>
+    </ThemeProvider>
   );
 };
 

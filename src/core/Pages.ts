@@ -5,4 +5,5 @@ export enum Pages {
   Reviews = '/reviews',
   Taobao = '/calculate/taobao',
   Alibaba = '/calculate/alibaba',
+  Order = '/order',
 }

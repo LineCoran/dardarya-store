@@ -8,6 +8,7 @@ import { About } from '../../Pages/About/About/About';
 import { Calculate } from '../../Pages/Calculate/Calculate';
 import { Reviews } from '../../Pages/Reviews/Reviews';
 import { CalculateSite } from '../../Pages/CalculateSite/CalculateSite';
+import { Order } from '../../Pages/Order/Order';
 import Sites from '../../enums/enums';
 
 const Fallback = () => {
@@ -29,6 +30,7 @@ export const Router = () => {
           <Route path={Pages.Taobao} element={<CalculateSite site={Sites.taobao} />} />
           <Route path={Pages.Alibaba} element={<CalculateSite site={Sites.alibaba} />} />
           <Route path={Pages.Reviews} element={<Reviews />} />
+          <Route path={Pages.Order} element={<Order />} />
         </Route>
       </Routes>
     </Suspense>
