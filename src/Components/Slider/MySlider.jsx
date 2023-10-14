@@ -63,54 +63,50 @@ export default function TextMobileStepper() {
           background: 'rgba(255, 255, 255, 0)',
         }}
       >
-        <Typography sx={{fontWeight: 'bold', fontSize: '1.2rem'}} >{steps[activeStep].label}</Typography>
+        <Typography sx={{ fontWeight: 'bold', fontSize: '1.2rem' }}>
+          {steps[activeStep].label}
+        </Typography>
         <StyledRating
-          name="customized-color"
+          name={'customized-color'}
           defaultValue={5}
           getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
           precision={0.5}
-          icon={<FavoriteIcon fontSize="inherit" />}
-          emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
-      />
+          icon={<FavoriteIcon fontSize={'inherit'} />}
+          emptyIcon={<FavoriteBorderIcon fontSize={'inherit'} />}
+        />
       </Paper>
-      <Box sx={{
-        height: '30vh',
-        maxWidth: 400,
-        width: '100%',
-        p: 2,
-        borderRadius: '50px',
-        marginBottom: '1rem',
-        color: 'black',
-        padding: '10px 25px',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        letterSpacing: '-0.5px',
-      }}>
+      <Box
+        sx={{
+          height: '30vh',
+          maxWidth: 400,
+          width: '100%',
+          p: 2,
+          borderRadius: '50px',
+          marginBottom: '1rem',
+          color: 'black',
+          padding: '10px 25px',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          letterSpacing: '-0.5px',
+        }}
+      >
         {steps[activeStep].description}
       </Box>
       <MobileStepper
-        variant='dots'
+        variant={'dots'}
         steps={maxSteps}
-        position="static"
+        position={'static'}
         activeStep={activeStep}
         nextButton={
-          <Fab
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-            color='primary'
-          >
-         <ArrowForwardIcon />
-        </Fab>
-        }
-        backButton={
-          <Fab
-            onClick={handleBack}
-            disabled={activeStep === 0}
-            color='primary'
-          >
-           <ArrowBackIcon />
+          <Fab onClick={handleNext} disabled={activeStep === maxSteps - 1} color={'primary'}>
+            <ArrowForwardIcon />
           </Fab>
         }
-        sx={{background: 'rgba(0, 0, 0, 0)', border: '2px solid #1976d2', borderRadius: '30px'}}
+        backButton={
+          <Fab onClick={handleBack} disabled={activeStep === 0} color={'primary'}>
+            <ArrowBackIcon />
+          </Fab>
+        }
+        sx={{ background: 'rgba(0, 0, 0, 0)', border: '2px solid #1976d2', borderRadius: '30px' }}
       />
     </Box>
   );

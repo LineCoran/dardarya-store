@@ -16,7 +16,7 @@ enum KeyOfProduct {
   delivery = 'delivery',
 }
 
-function Product({ id, site }: IProduct) {
+const Product = ({ id, site }: IProduct) => {
   const isTaobao = site !== 'taobao';
   const dispatch = useAppDispatch();
   const productStatus = useAppSelector((store) => store.productReducer.product)[site][id].status;
@@ -52,20 +52,31 @@ function Product({ id, site }: IProduct) {
     if ((priceDirty && priceError) || (weightDirty && weightError)) {
       dispatch(changeProductStatusSlice({ id, newStatus: 'error', sites: site }));
     } else if (priceDirty && !priceError && weightDirty && !weightError) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site  }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site  }));
+      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site }));
       dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight, sites: site }));
     }
   }
 
   function alibabaCheckAllInputs() {
-    if ((priceDirty && priceError) || (deliverDirty && deliverError) || (weightDirty && weightError)) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'error', sites: site  }));
-    } else if (priceDirty && !priceError && deliverDirty && !deliverError && weightDirty && !weightError) {
-      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site  }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site  }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.delivery, value: deliver, sites: site  }));
-      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight, sites: site  }));
+    if (
+      (priceDirty && priceError) ||
+      (deliverDirty && deliverError) ||
+      (weightDirty && weightError)
+    ) {
+      dispatch(changeProductStatusSlice({ id, newStatus: 'error', sites: site }));
+    } else if (
+      priceDirty &&
+      !priceError &&
+      deliverDirty &&
+      !deliverError &&
+      weightDirty &&
+      !weightError
+    ) {
+      dispatch(changeProductStatusSlice({ id, newStatus: 'valid', sites: site }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.price, value: price, sites: site }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.delivery, value: deliver, sites: site }));
+      dispatch(changeProductValue({ id, key: KeyOfProduct.weight, value: weight, sites: site }));
     }
   }
 
@@ -112,19 +123,19 @@ function Product({ id, site }: IProduct) {
 
   return (
     <div className={`product product-${productStatus}`}>
-      <p className='product-title'>{`Товар ${id + 1}`}</p>
-      <div className='product-inputs'>
+      <p className={'product-title'}>{`Товар ${id + 1}`}</p>
+      <div className={'product-inputs'}>
         <TextField
-          type='number'
-          label='Цена выкупа'
-          name='price'
-          size='small'
+          type={'number'}
+          label={'Цена выкупа'}
+          name={'price'}
+          size={'small'}
           sx={{ m: 1, width: '15ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position='start'>&#165;</InputAdornment>,
+            startAdornment: <InputAdornment position={'start'}>&#165;</InputAdornment>,
             inputMode: 'numeric',
           }}
-          variant='outlined'
+          variant={'outlined'}
           value={price}
           onBlur={blurHandler}
           onChange={priceHandler}
@@ -132,16 +143,16 @@ function Product({ id, site }: IProduct) {
         />
         {isTaobao && (
           <TextField
-            label='Доставка в Китае'
-            size='small'
-            id='standard-start-adornment'
+            label={'Доставка в Китае'}
+            size={'small'}
+            id={'standard-start-adornment'}
             sx={{ m: 1, width: '15ch' }}
             InputProps={{
-              startAdornment: <InputAdornment position='start'>&#165;</InputAdornment>,
+              startAdornment: <InputAdornment position={'start'}>&#165;</InputAdornment>,
               inputMode: 'numeric',
             }}
-            name='deliver'
-            variant='outlined'
+            name={'deliver'}
+            variant={'outlined'}
             value={deliver}
             onBlur={blurHandler}
             onChange={deliverHandler}
@@ -149,16 +160,16 @@ function Product({ id, site }: IProduct) {
           />
         )}
         <TextField
-          label='Вес товара'
-          size='small'
-          type='number'
+          label={'Вес товара'}
+          size={'small'}
+          type={'number'}
           sx={{ m: 1, width: '15ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position='start'>кг</InputAdornment>,
+            startAdornment: <InputAdornment position={'start'}>кг</InputAdornment>,
             inputMode: 'numeric',
           }}
-          variant='outlined'
-          name='weight'
+          variant={'outlined'}
+          name={'weight'}
           value={weight}
           onBlur={blurHandler}
           onChange={weightHandler}
@@ -167,6 +178,6 @@ function Product({ id, site }: IProduct) {
       </div>
     </div>
   );
-}
+};
 
 export default Product;
