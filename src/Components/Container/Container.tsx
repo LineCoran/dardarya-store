@@ -5,8 +5,8 @@ interface IContainer {
   children: ReactNode;
 }
 
-function Container({ children }: IContainer) {
-  return <div className='container'>{children}</div>;
-}
+const Container = ({ children }: IContainer) => {
+  return <div className={'container'}>{children}</div>;
+};
 
 export default Container;

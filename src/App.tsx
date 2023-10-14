@@ -1,13 +1,13 @@
 import './App.css';
 import Container from './Components/Container/Container';
-import Main from './Pages/Main/Main';
+import { Router } from './providers/Router/Router';
 
-function App() {
+const App = () => {
   return (
     <Container>
-      <Main />
+      <Router />
     </Container>
   );
-}
+};
 
 export default App;

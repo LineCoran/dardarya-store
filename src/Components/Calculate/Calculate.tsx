@@ -11,10 +11,10 @@ enum Sites {
   taobao = 'taobao',
 }
 
-function Calculate() {
+const Calculate = () => {
   return (
-    <section id='calculate' className='main-page calculate absolute'>
-      <div className='calculate-inner'>
+    <section id={'calculate'} className={'main-page calculate absolute'}>
+      <div className={'calculate-inner'}>
         <StoreButton site={Sites.taobao} showPage={changePage}>
           <TaobaoIcon />
         </StoreButton>
@@ -23,17 +23,13 @@ function Calculate() {
           <AlibabaIcon />
         </StoreButton>
       </div>
-      <div className='about-button-wrapper'>
-
-            <Fab
-              onClick={() => changePage('greeting')}
-              color='primary'
-            >
-              <Home />
-            </Fab>
+      <div className={'about-button-wrapper'}>
+        <Fab onClick={() => changePage('greeting')} color={'primary'}>
+          <Home />
+        </Fab>
       </div>
     </section>
   );
-}
+};
 
 export default Calculate;
