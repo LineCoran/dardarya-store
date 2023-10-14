@@ -1,3 +1,4 @@
+import React from 'react';
 import priceForDeliveryInBLR from '../../helpers/DeliveryInBLR';
 import { useAppSelector } from '../../hooks';
 import ProductResult from '../ProductResult/ProductResult';
