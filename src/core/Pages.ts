@@ -1,5 +1,5 @@
 export enum Pages {
-  Main = '/*',
+  Main = '/',
   About = '/about',
   Calculate = '/calculate',
   Reviews = '/reviews',
