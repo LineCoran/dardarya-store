@@ -10,7 +10,7 @@ import {
 // import { Auth } from '../constants/constants';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://dardarya-server.vercel.app/order',
+  baseUrl: 'https://dardarya-server.vercel.app/',
   // prepareHeaders: (headers, { getState }) => {
   //   const { accessToken } = (getState() as IGlobalStoreState).auth;
   //   headers.set('Authorization', `Bearer ${accessToken}`);

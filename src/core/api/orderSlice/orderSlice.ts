@@ -3,7 +3,7 @@ import { apiSlice } from '../apiSlice';
 const OrderApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getOrders: builder.query<any, any>({
-      query: (data) => {
+      query: () => {
         return {
           url: 'orders',
         };
