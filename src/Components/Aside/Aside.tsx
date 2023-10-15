@@ -23,6 +23,10 @@ export const navElements: NavElement[] = [
     name: 'Заказ',
     path: Pages.Order,
   },
+  {
+    name: 'Заказs',
+    path: Pages.Orders,
+  },
 ];
 
 export type NavElement = {
