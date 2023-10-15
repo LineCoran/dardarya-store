@@ -1,0 +1,54 @@
+.stars {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1rem 1rem;
+  justify-content: center;
+  background: url('../../assets/img/reviews.JPG') center center / cover no-repeat;
+}
+
+.stars-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.about-text {
+  position: absolute;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  width: 40%;
+  top: 20%;
+  right: 5%;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+  font-weight: 300;
+  background: rgba(241, 106, 244, 0.5);
+}
+
+.contacts {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  top: 30%;
+  left: 5%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 50px;
+  border-radius: 20px;
+}
+
+.contacts:first-child {
+  margin-bottom: 20px;
+}
+
+.MuiMobileStepper-dots .MuiMobileStepper-dot {
+  width: 12px;
+  height: 12px;
+}

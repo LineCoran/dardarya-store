@@ -1,0 +1,137 @@
+h1, h2, h3, h4, h5, h6, *, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+button {
+  border: none
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  background: whitesmoke;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.main-page {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.pages {
+  width: 70%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.title {
+  width: max-content;
+  padding: 10px 5px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 45px;
+  line-height: 1.3;
+  font-weight: 100;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .contacts {
+      padding: 5px 10px;
+  }
+
+  .contacts a {
+      font-size: 16px;
+  }
+
+  .contacts svg {
+      width: 20px;
+  }
+
+  .about-text {
+      font-size: 1rem;
+      width: 50%;
+      line-height: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pages {
+      width: 100%;
+  }
+
+  .page-title {
+      font-size: 34px;
+  }
+
+  .greeting-button-wrapper-three {
+      grid-gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+      font-size: 24px;
+  }
+
+  .mybutton {
+      padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+      font-size: 18px;
+  }
+  .mybutton {
+      padding: 4px 5px;
+      font-size: 16px;
+      letter-spacing: 1px;
+  }
+}
+
+.greeting {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: url('../../assets/img/hello.JPG') center center / cover no-repeat;
+}
+
+.greeting-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.greeting-title-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.greeting-button-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 80px;
+}
+
+.greeting-button-wrapper-three {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
