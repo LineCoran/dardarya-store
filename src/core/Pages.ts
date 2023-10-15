@@ -6,4 +6,5 @@ export enum Pages {
   Taobao = '/calculate/taobao',
   Alibaba = '/calculate/alibaba',
   Order = '/order',
+  Orders = '/orders',
 }
