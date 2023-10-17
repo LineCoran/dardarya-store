@@ -5,4 +5,5 @@ export type OrderItemType = {
   cost: number;
   weight: number;
   link: string;
+  createdat: Date;
 };
