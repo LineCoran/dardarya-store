@@ -8,8 +8,9 @@ import { About } from '../../Pages/About/About/About';
 import { Calculate } from '../../Pages/Calculate/Calculate';
 import { Reviews } from '../../Pages/Reviews/Reviews';
 import { CalculateSite } from '../../Pages/CalculateSite/CalculateSite';
-import { CreateOrder } from '../../Pages/Order/CreateOrder';
+import { CreateOrder } from '../../Pages/CreateOrder/CreateOrder';
 import { Orders } from '../../Pages/Orders/Orders';
+import { OrderItem } from '../../Pages/OrderItem/OrderItem';
 import Sites from '../../enums/enums';
 
 const Fallback = () => {
@@ -31,8 +32,9 @@ export const Router = () => {
           <Route path={Pages.Taobao} element={<CalculateSite site={Sites.taobao} />} />
           <Route path={Pages.Alibaba} element={<CalculateSite site={Sites.alibaba} />} />
           <Route path={Pages.Reviews} element={<Reviews />} />
-          <Route path={Pages.Order} element={<CreateOrder />} />
+          <Route path={Pages.CreateOrder} element={<CreateOrder />} />
           <Route path={Pages.Orders} element={<Orders />} />
+          <Route path={Pages.OrderItem} element={<OrderItem />} />
         </Route>
       </Routes>
     </Suspense>

@@ -21,7 +21,7 @@ export const navElements: NavElement[] = [
   },
   {
     name: 'Заказ',
-    path: Pages.Order,
+    path: Pages.CreateOrder,
   },
   {
     name: 'Заказы',
