@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { format } from 'date-fns';
 import { useGetOrderQuery } from './api/getOrderSlice';
 import { Loader } from '../../Components/Loader/Loader';
 
@@ -22,7 +23,7 @@ export const OrderItem = () => {
           <Typography>{`Описание: ${description}`}</Typography>
           <Typography>{`Цена: ${cost}`}</Typography>
           <Typography>{`Вес: ${weight}`}</Typography>
-          <Typography>{`Дата: ${createdat}`}</Typography>
+          <Typography>{`Дата заказа: ${format(new Date(createdat), 'dd-MM-yyyy')}`}</Typography>
         </Grid>
       </Grid>
     </Grid>
