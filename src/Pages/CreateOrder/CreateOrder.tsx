@@ -2,12 +2,15 @@ import React from 'react';
 import { Grid, Typography, Divider, Button } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { object, string, array, number } from 'yup';
+import { object, string, array, number, date } from 'yup';
+import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 import { ReactHookFormTextField } from '../../Components/RHF/ReactHookFormTextField';
 import { ReactHookFormImage } from '../../Components/RHF/ReactHookFormImage';
 import { ReactHookTextareaAutosize } from '../../Components/RHF/ReactHookFormTextarea';
 import { useCreateOrderMutation } from './api/createOrderSlice';
 import { CreateOrderType } from './api/apiTypes/createOrderSliceType';
+import { Pages } from '../../core/Pages';
 
 export const CreateOrder = () => {
   const validationScheme = object({
@@ -16,9 +19,11 @@ export const CreateOrder = () => {
     img: array().min(1, 'Скриншот обязателен').required('Скриншот обязателен'),
     cost: number(),
     weight: number(),
+    createdat: string().required(),
   });
 
-  const [createOrder] = useCreateOrderMutation();
+  const [createOrder, { isLoading }] = useCreateOrderMutation();
+  const navigate = useNavigate();
 
   const methods = useForm({
     defaultValues: {
@@ -27,6 +32,7 @@ export const CreateOrder = () => {
       img: [] as File[],
       cost: 0,
       weight: 0,
+      createdat: format(new Date(), 'yyyy-MM-dd'),
     },
     mode: 'onTouched',
     resolver: yupResolver(validationScheme),
@@ -34,14 +40,15 @@ export const CreateOrder = () => {
 
   const onSubmit = (order: CreateOrderType) => {
     const formData = new FormData();
-    const data = new Date();
     formData.append('cost', `${order.cost}`);
     formData.append('description', `${order.description}`);
     formData.append('img', order.img[0]);
     formData.append('link', `${order.link}`);
     formData.append('weight', `${order.weight}`);
-    formData.append('createdat', `${data}`);
-    createOrder(formData);
+    formData.append('createdat', `${order.createdat}`);
+    createOrder(formData).then((res) => {
+      navigate(-1);
+    });
   };
 
   return (
@@ -85,6 +92,7 @@ export const CreateOrder = () => {
                   sx={{ padding: '25px 20px' }}
                   type={'submit'}
                   variant={'contained'}
+                  disabled={isLoading}
                 >
                   Отправить
                 </Button>

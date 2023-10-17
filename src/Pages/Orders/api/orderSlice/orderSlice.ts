@@ -9,9 +9,7 @@ const OrderApi = apiSlice.injectEndpoints({
           url: 'orders',
         };
       },
-      //   forceRefetch({ currentArg, previousArg }) {
-      //     return currentArg !== previousArg;
-      //   },
+      providesTags: ['Order'],
     }),
   }),
 });

@@ -137,30 +137,8 @@ const GRADIENT_FOR_ICONS = {
 };
 
 export const theme = createTheme({
-  palette: {
-    primary: { ...PRIMARY },
-    secondary: { ...SECONDARY },
-    bgGradient: { ...BACKGROUND_GRADIENT },
-    bgGradientSecond: { ...SECOND_BACKGROUND_GRADIENT },
-    bg: { ...BACKGROUND },
-    bgSecond: { ...SECOND_BACKGROUND },
-    subtle: { ...SUBTLE },
-    bgTextGradient: { ...BACKGROUND_TEXT_GRADIENT },
-    bgIconGradient: { ...GRADIENT_FOR_ICONS },
-    borders: { ...BORDERS_LINES },
-  },
   typography,
   components: {
-    MuiFab: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1C1C1C',
-          ':hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.08)',
-          },
-        },
-      },
-    },
     MuiButton: {
       styleOverrides: {
         root: {

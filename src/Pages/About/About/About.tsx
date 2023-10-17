@@ -1,8 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ContactLink from '../../../Components/ContactLink/ContactLink';
 import InstagramIcon from '../../../Components/Icons/InstagramIcon';
 import TelegramIcon from '../../../Components/Icons/TelegramIcon';
+
 import { Pages } from '../../../core/Pages';
 import './About.css';
 
@@ -16,10 +17,14 @@ export const About = () => {
       <div className={'about-inner'}>
         <div className={'about-title-list'}>
           <h2 className={'page-title title about-title'}>Давай знакомиться! &#128075;</h2>
-          <p className={'about-text'}>
+          {/* <p className={'about-text'}>
             Меня зовут Дарья и я посредник по закупкам товаров в Китае. Я привезла 300 кг различного
             товара, могу помочь и тебе!
-          </p>
+          </p> */}
+          <Typography className={'about-text'} variant={'body1'}>
+            Меня зовут Дарья и я посредник по закупкам товаров в Китае. Я привезла 300 кг различного
+            товара, могу помочь и тебе!
+          </Typography>
           <div className={'contacts'}>
             <ContactLink link={'https://www.instagram.com/dardaryya/'} name={'Instagram'}>
               <InstagramIcon />

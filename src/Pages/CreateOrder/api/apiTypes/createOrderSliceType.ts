@@ -4,4 +4,5 @@ export type CreateOrderType = {
   cost?: number;
   weight?: number;
   link: string;
+  createdat: string;
 };
