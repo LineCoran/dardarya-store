@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Divider, Button } from '@mui/material';
+import { Grid, Typography, Divider, Button, CircularProgress } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string, array, number, date } from 'yup';
@@ -11,6 +11,7 @@ import { ReactHookTextareaAutosize } from '../../Components/RHF/ReactHookFormTex
 import { useCreateOrderMutation } from './api/createOrderSlice';
 import { CreateOrderType } from './api/apiTypes/createOrderSliceType';
 import { Pages } from '../../core/Pages';
+
 
 export const CreateOrder = () => {
   const validationScheme = object({
@@ -89,12 +90,12 @@ export const CreateOrder = () => {
               <Grid item xs={12}>
                 <Button
                   fullWidth
-                  sx={{ padding: '25px 20px' }}
+                  sx={{ padding: '1rem' }}
                   type={'submit'}
                   variant={'contained'}
                   disabled={isLoading}
                 >
-                  Отправить
+                  {isLoading ? <CircularProgress /> : "Отправить" }
                 </Button>
               </Grid>
             </Grid>

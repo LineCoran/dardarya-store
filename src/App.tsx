@@ -13,12 +13,12 @@ const App = () => {
     .then((response) => response.json())
     .then((json) => dispatch(changeUsdSlice(json.Cur_OfficialRate)));
   return (
-    <ThemeProvider theme={theme}>
+    // <ThemeProvider theme={theme}>
       <Container>
         <TransitionsModal />
         <Router />
       </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 };
 

@@ -4,6 +4,7 @@ import { Button, Fab, Box, IconButton, Grid } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { makeStyles } from 'tss-react/mui';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const useStyles = makeStyles({ name: 'ReactHookFormImage' })(() => ({
   wrapper: {},
@@ -12,6 +13,17 @@ const useStyles = makeStyles({ name: 'ReactHookFormImage' })(() => ({
     height: '200px',
     position: 'relative',
     objectFit: 'fill',
+  },
+  input: {
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
   },
   addButton: {
     maxWidth: '200px',
@@ -95,11 +107,15 @@ export const ReactHookFormImage = ({ name, label }: ReactHookFormImageTypes) => 
                 );
               })}
             {file.length < 3 && (
-              <Button className={classes.addButton} component={'label'}>
-                Фото*
-                <AddAPhotoIcon sx={{ height: '150px', width: '150px' }} />
-                <input type={'file'} hidden name={name} onChange={(e) => onFileChange(e)} />
-              </Button>
+              // <Button className={classes.addButton} component={'label'}>
+              //   Фото*
+              //   <AddAPhotoIcon sx={{ height: '150px', width: '150px' }} />
+              //   <input type={'file'} hidden />
+              // </Button>
+                            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+                            Upload file
+                          <input className={classes.input} type="file" name={name} onChange={(e) => onFileChange(e)} />
+                        </Button>
             )}
           </Grid>
         </Grid>
