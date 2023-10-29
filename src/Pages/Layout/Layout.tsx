@@ -33,7 +33,6 @@ export const Layout = () => {
           <Outlet />
         </div>
       </main>
-      <Footer />
     </Container>
   );
 };

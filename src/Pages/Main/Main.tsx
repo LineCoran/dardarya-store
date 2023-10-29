@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import changePage from '../../helpers/ChangePage';
 import './Main.css';
 import { Pages } from '../../core/Pages';
+import { Footer } from '../../Components/Footer/Footer';
 
 export const Main = () => {
   const navigate = useNavigate();
   const handleClickAbout = () => navigate(Pages.About);
   const handleClickCalculate = () => navigate(Pages.Calculate);
   return (
+    <>
     <section id={'greeting'} className={'main-page greeting visible'}>
       <div className={'greeting-inner'}>
         <div className={'greeting-title-list'}>
@@ -32,5 +34,7 @@ export const Main = () => {
         </div>
       </div>
     </section>
+    <Footer />
+    </>
   );
 };
