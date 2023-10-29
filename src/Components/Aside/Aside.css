@@ -13,6 +13,13 @@
     color: black;
 }
 
+.closeWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
 @media (max-width: 768px) {
     .aside {
         position: absolute;
@@ -20,5 +27,18 @@
         left: 0;
         width: 270px;
         transform: translateX(-100%);
+        
+    }
+
+    .aside-show {
+        transform: translateX(0);
+        width: 100%;
+        z-index: 2000;
+        background: white;
+    }
+
+    .closeWrapper {
+        display: block;
     }
 }
+
